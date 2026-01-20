@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hostel Hive | Admin Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            width: 400px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 0 25px rgba(0,0,0,0.2);
+        }
+
+        .login-box h2 {
+            font-size: 30px;
+            color: #4e54c8;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 2px solid #4e54c8;
+            outline: none;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #4e54c8;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-box button:hover {
+            background: #3a3fa3;
+        }
+
+        .back-link {
+            margin-top: 15px;
+            display: inline-block;
+            color: #000;
+            font-size: 15px;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h2>🛡️ Admin Login</h2>
+
+        <form action="AdminLoginServlet" method="POST" onsubmit="return validateForm()">
+            <input type="text" id="id" name="id" placeholder="Enter ID" required>
+            <input type="text" id="name" name="name" placeholder="Enter Name" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="back-link" onclick="goBack()">⬅ Back</div>
+    </div>
+
+    <script>
+        function validateForm() {
+            let id = document.getElementById("id").value.trim();
+            let name = document.getElementById("name").value.trim();
+
+            if (id === "") { alert("Enter ID"); return false; }
+            if (name === "") { alert("Enter Name"); return false; }
+
+            return true;
+        }
+
+        function goBack() {
+            window.location.href = "user.html";
+        }
+    </script>
+
+</body>
+</html>
